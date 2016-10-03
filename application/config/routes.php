@@ -58,5 +58,7 @@ $route['admin/logout'] = 'Admin/users/logout';
 $route['admin/get_detail'] = 'Admin/home/get_detail';
 $route['admin/delete_detail'] = 'Admin/home/delete_detail';
 $route['admin/manage_authors'] = 'Admin/authors/manage';
+$route['admin/manage_courses'] = 'Admin/courses/manage';
+$route['admin/manage_streams'] = 'Admin/streams/manage';
 
 $route['admin'] = 'Admin/home';

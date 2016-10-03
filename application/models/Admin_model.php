@@ -56,6 +56,16 @@ class Admin_model extends CI_Model {
         $records = $this->db->get($table_name);
         return $records->result_array();
     }
+    
+    public function get_all_streams( $id = '' ){
+        $this->db->select('streams.*, courses.course_name');
+        if($id != ''){
+            $this->db->where('id', $id);
+        }
+        $this->db->join('courses','courses.id = streams.course_id', 'left');
+        $emirates = $this->db->get('streams');
+        return $emirates->result_array();
+    }
 
     public function total_records( $table_name ) {
         $this->db->where('is_active', 1);
