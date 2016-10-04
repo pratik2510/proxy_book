@@ -57,8 +57,10 @@ $route['admin/login'] = 'Admin/users/login';
 $route['admin/logout'] = 'Admin/users/logout';
 $route['admin/get_detail'] = 'Admin/home/get_detail';
 $route['admin/delete_detail'] = 'Admin/home/delete_detail';
-$route['admin/manage_authors'] = 'Admin/authors/manage';
-$route['admin/manage_courses'] = 'Admin/courses/manage';
-$route['admin/manage_streams'] = 'Admin/streams/manage';
+$route['admin/authors'] = 'Admin/authors/manage';
+$route['admin/courses'] = 'Admin/courses/manage';
+$route['admin/streams'] = 'Admin/streams/manage';
+$route['admin/subjects'] = 'Admin/subjects/manage';
+$route['admin/assign_subject'] = 'Admin/subjects/assign_subject';
 
 $route['admin'] = 'Admin/home';

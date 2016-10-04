@@ -56,8 +56,26 @@ class Streams extends CI_Controller {
                     // redirect('admin/manage/' . $type);
                 }
             }
-            redirect('admin/manage_streams');
+            redirect('admin/streams');
         }
         $this->template->load('admin', 'Admin/Streams/manage_streams', $this->data);
+    }
+
+    public function get_streams_by_course(){
+        $course_id = $this->input->post('course_id');
+        $streams = $this->Admin_model->get_all_streams_by_course($course_id);
+        if( count($streams) > 0 ){
+            pr($streams,1);
+            $return_array = array(
+                'status' => 1,
+                'streams' => $streams
+            );
+
+        } else {
+            $return_array = array(
+                'status' => 0
+            );
+        }
+        echo json_encode($return_array);
     }
 }

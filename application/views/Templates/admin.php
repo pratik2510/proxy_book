@@ -83,13 +83,10 @@
                                 <ul class="navigation navigation-main navigation-accordion">
                                     <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
                                     <li><a href="admin"><i class="icon-home2"></i> <span>Dashboard</span></a></li>
-                                    <li><a href="admin/resumes"><i class="icon-users"></i> <span>Authors</span></a></li>
-                                    <li><a href="admin/positions"><i class="icon-magazine"></i> <span>Positions</span></a></li>
-                                    <li><a href="admin/manage/emirates"><i class="icon-pin"></i> <span>Emirates</span></a></li>
-                                    <li><a href="admin/manage/fields"><i class="icon-pin"></i> <span>Job Fields</span></a></li>
-                                    <li><a href="admin/manage/types"><i class="icon-pin"></i> <span>Job Types</span></a></li>
-                                    <li><a href="admin/manage/job_status"><i class="icon-pin"></i> <span>Job Status</span></a></li>
-                                    <li><a href="admin/manage/skills"><i class="icon-pin"></i> <span>Job Skills</span></a></li>
+                                    <li><a href="admin/authors"><i class="icon-users"></i> <span>Authors</span></a></li>
+                                    <li><a href="admin/courses"><i class="icon-magazine"></i> <span>Courses</span></a></li>
+                                    <li><a href="admin/streams"><i class="icon-pin"></i> <span>Streams</span></a></li>
+                                    <li><a href="admin/subjects"><i class="icon-pin"></i> <span>Subjects</span></a></li>
                                 </ul>
                             </div>
                         </div>

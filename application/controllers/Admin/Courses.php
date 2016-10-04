@@ -49,7 +49,7 @@ class Courses extends CI_Controller {
                     // redirect('admin/manage/' . $type);
                 }
             }
-            redirect('admin/manage_courses');
+            redirect('admin/courses');
         }
         $this->template->load('admin', 'Admin/Courses/manage_courses', $this->data);
     }

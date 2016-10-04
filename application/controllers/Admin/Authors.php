@@ -49,7 +49,7 @@ class Authors extends CI_Controller {
                     // redirect('admin/manage/' . $type);
                 }
             }
-            redirect('admin/manage_authors');
+            redirect('admin/authors');
         }
         $this->template->load('admin', 'Admin/Authors/manage_authors', $this->data);
     }

@@ -10,11 +10,9 @@ class Home extends CI_Controller {
         $this->popular_limit = 5;
         $this->type_table = array(
             'authors' => 'authors',
-            'fields' => 'job_fields',
-            'types' => 'job_types',
-            'job_status' => 'job_status',
-            'skills' => 'resume_skills',
-            'no_of_employees' => 'no_of_employees'
+            'courses' => 'courses',
+            'streams' => 'streams',
+            'subjects' => 'subjects'
         );
     }
 

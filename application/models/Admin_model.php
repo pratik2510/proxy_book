@@ -63,8 +63,14 @@ class Admin_model extends CI_Model {
             $this->db->where('id', $id);
         }
         $this->db->join('courses','courses.id = streams.course_id', 'left');
-        $emirates = $this->db->get('streams');
-        return $emirates->result_array();
+        $streams = $this->db->get('streams');
+        return $streams->result_array();
+    }
+
+    public function get_all_streams_by_course( $course_id ){
+        $this->db->where('course_id', $course_id);
+        $streams = $this->db->get('streams');
+        return $streams->result_array();
     }
 
     public function total_records( $table_name ) {
