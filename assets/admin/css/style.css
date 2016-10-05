@@ -1,5 +1,8 @@
 .login_logo{
-	border-style: none;
+    border-style: none;
+}
+.login_logo img{
+    max-width: 100%;
 }
 .navbar-top .navbar .navbar-header{
 	display: table !important;
@@ -11,8 +14,8 @@
  	display: table-cell;
     float: none;
     vertical-align: middle;
-    /*width: 100%;*/
-    padding: 0;
+    width: 260px;
+    padding: 0 10px;
 }
 .navbar-brand > img {
     height: auto;

@@ -61,14 +61,14 @@ class Streams extends CI_Controller {
         $this->template->load('admin', 'Admin/Streams/manage_streams', $this->data);
     }
 
-    public function get_streams_by_course(){
+    public function get_streams_options(){
         $course_id = $this->input->post('course_id');
-        $streams = $this->Admin_model->get_all_streams_by_course($course_id);
-        if( count($streams) > 0 ){
-            pr($streams,1);
+        $options['streams'] = $this->Admin_model->get_all_streams_by_course($course_id);
+        if( count($options['streams']) > 0 ){
+            $html = $this->load->view('Admin/Streams/get_stream_options', $options, true);
             $return_array = array(
                 'status' => 1,
-                'streams' => $streams
+                'streams' => $html
             );
 
         } else {

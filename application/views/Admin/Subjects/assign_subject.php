@@ -40,14 +40,14 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Stream:</label>
                         <div class="col-sm-9">
-                            <select class="select" name="course_id" id="course_id" title="Select Stream">
+                            <select class="select" name="stream_id" id="stream_id" title="Select Stream">
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Applicable Year / Sem:</label>
                         <div class="col-sm-9">
-                            <select class="select" name="course_id" id="course_id" title="Select Applicable Year / Sem">
+                            <select class="select" name="applicable_id" id="applicable_id" title="Select Applicable Year / Sem">
                             </select>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
 
     $(document).on('change', '#course_id', function () {
         var course_id = $(this).val();
-        var url = base_url + 'streams/get_streams_by_course';
+        var url = base_url + 'get_streams_options';
         $.ajax({
             type: 'POST',
             url: url,
@@ -175,20 +175,23 @@
             data:{course_id:course_id },
             success: function (data) {
                 if (data.status == 1) {
-                    var record = data.record[0];
-                    console.log(data);
-//                     console.clear();
-                    $('#stream_name').val(record.stream_name);
-                    $('#duration').val(record.duration);
-                    var is_yearly = $('input.stream_type[value='+ record.is_yearly +']');
-                    $('stream_type').parent().removeClass('checked');
-                    is_yearly.prop('checked',true);
-                    is_yearly.parent().addClass('checked');
-                    $('.select').selectpicker('val', record.course_id);
-                    $('#record_id').val(record.id);
+                    $("#stream_id")
+                    .html(data.streams)
+                    .selectpicker('refresh');
                 }
             }
         });
+    });
+    $(document).on('change', '#stream_id', function () {
+        var stream_id = $(this).val();
+        var duration = $(document).find('#stream_id option[value='+ stream_id +']').attr('data-duration');
+        var html = '';
+        for(var i = 1; i <= duration; i++){
+            html += '<option value="' + i + '">' + i + '</option>'
+        }
+        $("#applicable_id")
+        .html(html)
+        .selectpicker('refresh');
     });
 
 </script>

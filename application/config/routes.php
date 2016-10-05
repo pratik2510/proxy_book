@@ -62,5 +62,6 @@ $route['admin/courses'] = 'Admin/courses/manage';
 $route['admin/streams'] = 'Admin/streams/manage';
 $route['admin/subjects'] = 'Admin/subjects/manage';
 $route['admin/assign_subject'] = 'Admin/subjects/assign_subject';
+$route['admin/get_streams_options'] = 'Admin/streams/get_streams_options';
 
 $route['admin'] = 'Admin/home';
