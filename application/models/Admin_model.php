@@ -72,6 +72,16 @@ class Admin_model extends CI_Model {
         $streams = $this->db->get('streams');
         return $streams->result_array();
     }
+    
+    public function get_assign_subjects(){
+        $this->db->select('assign_subjects.*, subjects.subject_name, courses.course_name, streams.stream_name, streams.is_yearly');
+        $this->db->join('subjects', 'subjects.id = assign_subjects.subject_id', 'left');
+        $this->db->join('courses', 'courses.id = assign_subjects.course_id', 'left');
+        $this->db->join('streams', 'streams.id = assign_subjects.stream_id', 'left');
+        $streams = $this->db->get('assign_subjects');
+        return $streams->result_array();
+    }
+    
 
     public function total_records( $table_name ) {
         $this->db->where('is_active', 1);

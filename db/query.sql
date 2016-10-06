@@ -45,3 +45,21 @@ CREATE TABLE IF NOT EXISTS `subjects` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assign_subject`
+--
+
+CREATE TABLE IF NOT EXISTS `assign_subjects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject_id` int(11) DEFAULT NULL,
+  `course_id` int(11) DEFAULT NULL,
+  `stream_id` int(11) DEFAULT NULL,
+  `applicable` int(11) DEFAULT NULL,
+  `is_active` tinyint(4) NOT NULL DEFAULT '1',
+  `created_by` int(11) DEFAULT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

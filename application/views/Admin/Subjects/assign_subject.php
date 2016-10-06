@@ -77,23 +77,20 @@
                         <thead>
                             <tr class="bg-teal">
                                 <th>#</th>
-                                <th><?php echo $record_type . ' Name'; ?></th>
-                                <th>Course Name</th>
-                                <th>Type</th>
-                                <th>Duration</th>
+                                <th>Subject Name</th>
+                                <th>Applicable For</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach ($records as $key => $record) {
-                                ?>
+                                $stream_type = ($record['is_yearly'] == 1) ? 'Year' : 'Sem';
+                            ?>
                                 <tr>
                                     <td><?php echo $key + 1; ?></td>
-                                    <td><?php echo $record['stream_name']; ?></td>
-                                    <td><?php echo $record['course_name']; ?></td>
-                                    <td><?php echo ($record['is_yearly']) ? 'Yearly' : 'Semester'; ?></td>
-                                    <td><?php echo $record['duration']; ?></td>
+                                    <td><?php echo $record['subject_name']; ?></td>
+                                    <td><?php echo $record['course_name'] . ' ( ' . $record['stream_name'] . ' ) - ' . $record['applicable'] . ' ' . $stream_type; ?></td>
                                     <td>
                                         <ul class="icons-list">
                                             <li class="text-teal-600">

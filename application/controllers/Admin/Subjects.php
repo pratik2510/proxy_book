@@ -61,14 +61,25 @@ class Subjects extends CI_Controller {
         $this->data['courses'] = $this->Admin_model->get_records('courses');
         $this->data['streams'] = $this->Admin_model->get_records('streams');
         $this->data['subjects'] = $this->Admin_model->get_records('subjects');
-        $this->form_validation->set_rules('subject_name', 'Subject Name', 'trim|required', array('required' => 'Please enter subject name.'));
+        $this->data['records'] = $this->Admin_model->get_assign_subjects();
+//        pr($this->data['records'],1);
+        $this->form_validation->set_rules('subject_id', 'subject_id', 'trim|required', array('required' => 'Please select subject.'));
+        $this->form_validation->set_rules('course_id', 'course_id', 'trim|required', array('required' => 'Please select course.'));
+        $this->form_validation->set_rules('stream_id', 'stream_id', 'trim|required', array('required' => 'Please enter stream.'));
+        $this->form_validation->set_rules('applicable_id', 'applicable_id', 'trim|required', array('required' => 'Please enter applicable year / sem.'));
         
         if ($this->form_validation->run() == TRUE) {
             
-            $subject_name = $this->input->post('subject_name');
+            $subject_id = $this->input->post('subject_id');
+            $course_id = $this->input->post('course_id');
+            $stream_id = $this->input->post('stream_id');
+            $applicable_id = $this->input->post('applicable_id');
             $record_id = $this->input->post('record_id');
             $record_array = array(
-                'subject_name' => $subject_name,
+                'subject_id' => $subject_id,
+                'course_id' => $course_id,
+                'stream_id' => $stream_id,
+                'applicable' => $applicable_id,
                 'created_by' => $this->session->userdata('user_id')
             );
             if ($record_id != '') {
@@ -95,7 +106,7 @@ class Subjects extends CI_Controller {
                     // redirect('admin/manage/' . $type);
                 }
             }
-            redirect('admin/subjects');
+            redirect('admin/assing_subject');
         }
         $this->template->load('admin', 'Admin/Subjects/assign_subject', $this->data);
     }
