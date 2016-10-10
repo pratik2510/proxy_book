@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6">
-        <form method="POST" class="form-horizontal form-validate manage_record" id="manage_record" name="manage_record">
+        <form method="POST" class="form-horizontal form-validate name_field_form" id="manage_record" name="manage_record">
             <div class="panel panel-flat">
                 <div class="panel-heading">
                     <h5 class="panel-title"><?php echo 'Manage ' . $record_type; ?></h5>
@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Author Name:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="author_name" id="author_name" required="required">
+                            <input type="text" class="form-control" name="name_field" id="name_field" required="required">
                             <input type="hidden" name="record_id" id="record_id">
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                 if (data.status == 1) {
                     var record = data.record[0];
                     // console.clear();
-                    $('#author_name').val(record.author_name);
+                    $('#name_field').val(record.author_name);
                     $('#record_id').val(record.id);
                 }
             }

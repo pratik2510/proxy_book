@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Subject Name:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="subject_name" id="subject_name" required="required">
+                            <input type="text" class="form-control" name="name_field" id="name_field" required="required">
                             <input type="hidden" name="record_id" id="record_id">
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                 if (data.status == 1) {
                     var record = data.record[0];
                     // console.clear();
-                    $('#subject_name').val(record.subject_name);
+                    $('#name_field').val(record.subject_name);
                     $('#record_id').val(record.id);
                 }
             }
