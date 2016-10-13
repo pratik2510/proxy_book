@@ -15,11 +15,11 @@ class Authors extends CI_Controller {
         $title = 'Author';
         $this->data['title'] = $this->data['page_header'] = $this->data['record_type'] = $title;
         $this->data['records'] = $this->Admin_model->get_records($table_name);
-        $this->form_validation->set_rules('author_name', 'Author Name', 'trim|required', array('required' => 'Please enter author name.'));
+        $this->form_validation->set_rules('name_field', 'Author Name', 'trim|required', array('required' => 'Please enter author name.'));
         
         if ($this->form_validation->run() == TRUE) {
             
-            $author_name = $this->input->post('author_name');
+            $author_name = $this->input->post('name_field');
             $record_id = $this->input->post('record_id');
             $record_array = array(
                 'author_name' => $author_name,

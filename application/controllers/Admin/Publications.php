@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Courses extends CI_Controller {
+class Publications extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -11,18 +11,18 @@ class Courses extends CI_Controller {
     }
 
     public function manage(){
-        $table_name = 'courses';
-        $title = 'Course';
+        $table_name = 'publications';
+        $title = 'Publication';
         $this->data['title'] = $this->data['page_header'] = $this->data['record_type'] = $title;
         $this->data['records'] = $this->Admin_model->get_records($table_name);
-        $this->form_validation->set_rules('name_field', 'Course Name', 'trim|required', array('required' => 'Please enter course name.'));
+        $this->form_validation->set_rules('name_field', 'Publication Name', 'trim|required', array('required' => 'Please enter publication name.'));
         
         if ($this->form_validation->run() == TRUE) {
             
-            $course_name = $this->input->post('name_field');
+            $publication_name = $this->input->post('name_field');
             $record_id = $this->input->post('record_id');
             $record_array = array(
-                'course_name' => $course_name,
+                'publication_name' => $publication_name,
                 'created_by' => $this->session->userdata('user_id')
             );
             if ($record_id != '') {
@@ -49,8 +49,8 @@ class Courses extends CI_Controller {
                     // redirect('admin/manage/' . $type);
                 }
             }
-            redirect('admin/courses');
+            redirect('admin/publications');
         }
-        $this->template->load('admin', 'Admin/Courses/manage_courses', $this->data);
+        $this->template->load('admin', 'Admin/Publications/manage_publications', $this->data);
     }
 }

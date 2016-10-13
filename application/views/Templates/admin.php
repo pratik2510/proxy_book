@@ -16,6 +16,7 @@
         <link href="assets/admin/css/components.css" rel="stylesheet" type="text/css">
         <link href="assets/admin/css/colors.css" rel="stylesheet" type="text/css">
         <link href="assets/admin/css/style.css" rel="stylesheet" type="text/css">
+        <link href="assets/libraries/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" type="text/css">
         <!-- <link href="assets/css/common.css" rel="stylesheet" type="text/css" id="style-primary"> -->
         <!-- /global stylesheets -->
 
@@ -140,6 +141,7 @@
         <script type="text/javascript" src="assets/admin/js/plugins/forms/styling/uniform.min.js"></script>
         <script type="text/javascript" src="assets/admin/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
         <script type="text/javascript" src="assets/libraries/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript" src="assets/libraries/bootstrap-fileinput/js/fileinput.min.js"></script>
         <script type="text/javascript" src="assets/admin/js/plugins/ui/nicescroll.min.js"></script>
         <script type="text/javascript" src="assets/admin/js/plugins/forms/selects/bootstrap_select.min.js"></script>
         <script type="text/javascript" src="assets/admin/js/plugins/tables/datatables/datatables.min.js"></script>

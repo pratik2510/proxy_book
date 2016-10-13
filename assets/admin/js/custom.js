@@ -83,7 +83,7 @@ $(document).on('ready', function () {
         var switchery = new Switchery(html, {color: '#4CAF50'});
     });
 
-    $(".manage_record.form-validate").validate({
+    $(".name_field_form").validate({
         ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
         errorClass: 'validation-error-label',
         successClass: 'validation-valid-label',
@@ -95,19 +95,13 @@ $(document).on('ready', function () {
         },
         validClass: "validation-valid-label",
         rules: {
-            english_name: {
-                required: true,
-            },
-            arabic_name: {
+            name_field: {
                 required: true,
             }
         },
         messages: {
-            english_name: {
-                required: "Enter english name.",
-            },
-            arabic_name: {
-                required: "Enter arabic name.",
+            name_field: {
+                required: "Please enter name.",
             }
         }
     });
@@ -190,5 +184,62 @@ $(document).on('ready', function () {
     });
 
     $(".styled").uniform({radioClass: 'choice'});
+    
+    $(".upload_photo").fileinput({
+        dropZoneTitle: '<i class="fa fa-photo"></i><span>Upload Cover Image</span>',
+        uploadUrl: '/',
+        maxFileCount: 1,
+        showUpload: false,
+        browseLabel: 'Browse',
+        browseIcon: '',
+        removeLabel: 'Remove',
+        removeIcon: '',
+        uploadLabel: 'Upload',
+        uploadIcon: '',
+        autoReplace: true,
+        allowedFileTypes: ['image'],
+        allowedFileExtensions: ['jpg', 'gif', 'png', 'jpeg']
+    });
+    
+    URL = window.URL || window.webkitURL;
+    var blobURL = '';
+    $('.upload_photo').on('fileloaded', function (event, file, previewId, index, reader) {
+        blobURL = URL.createObjectURL(file);
+        $('#crop_img_type').val(file.type);
+        $("#image_crop").modal('show');
+
+        $('#image_crop').on('shown.bs.modal', function () {
+            var image = $(document).find('#image_crop #modal_image');
+            image.cropper({
+                viewMode:1,
+                dragMode: 'move',
+                aspectRatio: 1 / 1,
+                cropBoxMovable: false,
+                cropBoxResizable: false,
+                movable: true,
+                toggleDragModeOnDblclick: false
+            });
+
+            image.on('built.cropper', function () {
+                URL.revokeObjectURL(blobURL);
+            }).cropper('reset').cropper('replace', blobURL);
+        });
+
+    });
+    $('.upload_photo').on('fileuploaderror', function (event, data, msg) {
+        $(".upload_photo").fileinput('reset');
+    });
+    $('#image_crop').on('hidden.bs.modal', manage_crop_image);
+    $("#crop_btn").click(manage_crop_image);
+
+    function manage_crop_image() {
+        var croppedCanvas = $('#modal_image').cropper('getCroppedCanvas', {height: 300, width: 300});
+        var result = getRoundedCanvas(croppedCanvas);
+        var im_url = result.toDataURL();
+        $('.file-preview-image').attr('src', im_url);
+        /*$('#modal_image').cropper('getCroppedCanvas').toBlob(function(blob){
+         console.log('blob = ', blob);
+         });*/
+    }
 
 });

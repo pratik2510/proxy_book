@@ -58,9 +58,12 @@ $route['admin/logout'] = 'Admin/users/logout';
 $route['admin/get_detail'] = 'Admin/home/get_detail';
 $route['admin/delete_detail'] = 'Admin/home/delete_detail';
 $route['admin/authors'] = 'Admin/authors/manage';
+$route['admin/publications'] = 'Admin/publications/manage';
 $route['admin/courses'] = 'Admin/courses/manage';
 $route['admin/streams'] = 'Admin/streams/manage';
 $route['admin/subjects'] = 'Admin/subjects/manage';
+$route['admin/books'] = 'Admin/books/manage';
+$route['admin/pincodes'] = 'Admin/pincodes/manage';
 $route['admin/assign_subject'] = 'Admin/subjects/assign_subject';
 $route['admin/get_streams_options'] = 'Admin/streams/get_streams_options';
 

@@ -12,7 +12,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Subject Name:</label>
+                        <label class="col-sm-3 control-label">Pincode Name:</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="name_field" id="name_field" required="required">
                             <input type="hidden" name="record_id" id="record_id">
@@ -54,7 +54,7 @@
                                 ?>
                                 <tr>
                                     <td><?php echo $key + 1; ?></td>
-                                    <td><?php echo $record['subject_name']; ?></td>
+                                    <td><?php echo $record['pincode_name']; ?></td>
                                     <td>
                                         <ul class="icons-list">
                                             <li class="text-teal-600">
@@ -87,12 +87,12 @@
             url: url,
             async: false,
             dataType: 'JSON',
-            data:{id:id, type: 'subjects' },
+            data:{id:id, type: 'pincodes' },
             success: function (data) {
                 if (data.status == 1) {
                     var record = data.record[0];
                     // console.clear();
-                    $('#name_field').val(record.subject_name);
+                    $('#name_field').val(record.pincode_name);
                     $('#record_id').val(record.id);
                 }
             }
@@ -109,7 +109,7 @@
                 url: url,
                 async: false,
                 dataType: 'JSON',
-                data:{id:id, type: 'subjects' },
+                data:{id:id, type: 'pincodes' },
                 success: function (data) {
                     if (data.status == 1) {
                         location.reload();

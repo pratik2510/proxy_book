@@ -15,11 +15,11 @@ class Subjects extends CI_Controller {
         $title = 'Subject';
         $this->data['title'] = $this->data['page_header'] = $this->data['record_type'] = $title;
         $this->data['records'] = $this->Admin_model->get_records($table_name);
-        $this->form_validation->set_rules('subject_name', 'Subject Name', 'trim|required', array('required' => 'Please enter subject name.'));
+        $this->form_validation->set_rules('name_field', 'Subject Name', 'trim|required', array('required' => 'Please enter subject name.'));
         
         if ($this->form_validation->run() == TRUE) {
             
-            $subject_name = $this->input->post('subject_name');
+            $subject_name = $this->input->post('name_field');
             $record_id = $this->input->post('record_id');
             $record_array = array(
                 'subject_name' => $subject_name,
@@ -62,7 +62,6 @@ class Subjects extends CI_Controller {
         $this->data['streams'] = $this->Admin_model->get_records('streams');
         $this->data['subjects'] = $this->Admin_model->get_records('subjects');
         $this->data['records'] = $this->Admin_model->get_assign_subjects();
-//        pr($this->data['records'],1);
         $this->form_validation->set_rules('subject_id', 'subject_id', 'trim|required', array('required' => 'Please select subject.'));
         $this->form_validation->set_rules('course_id', 'course_id', 'trim|required', array('required' => 'Please select course.'));
         $this->form_validation->set_rules('stream_id', 'stream_id', 'trim|required', array('required' => 'Please enter stream.'));
@@ -110,4 +109,17 @@ class Subjects extends CI_Controller {
         }
         $this->template->load('admin', 'Admin/Subjects/assign_subject', $this->data);
     }
+    
+    function ordinal($number) {
+        $locale = 'en_US';
+        $nf = new NumberFormatter($locale, NumberFormatter::ORDINAL);
+        echo $nf->format($number);
+        exit;
+        $ends = array('th','st','nd','rd','th','th','th','th','th','th');
+        if ((($number % 100) >= 11) && (($number%100) <= 13))
+            echo $number. 'th';
+        else
+            echo $number. $ends[$number % 10];
+    }
+    
 }
